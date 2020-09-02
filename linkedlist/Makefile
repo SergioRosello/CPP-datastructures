@@ -1,8 +1,20 @@
-all:
-	g++ -o main main.cpp linkedlist.cpp -Werror -Wall
+CC=g++
+CFLAGS=-Werror -Wall
+
+DEPS = linkedlist.h 
+OBJ = linkedlist.o main.o
+
+%.o: %.cpp $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+# OBJ is a variable, it simlpy substitutes
+# $@ is the target name
+# $^ are the prerequisites 
+main: $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
 
 clear:
-	rm main
+	rm *.o main
 
-run: all
+run: main
 	./main
