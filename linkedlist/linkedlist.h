@@ -1,6 +1,7 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
+#include <cassert>
 #include <iterator>
 #include <ostream>
 #include <string>
@@ -38,9 +39,7 @@ Linkedlist::Linkedlist(){
   this->size = 0;
 }
 
-Linkedlist::~Linkedlist(){
-  delete this;
-}
+Linkedlist::~Linkedlist(){ }
 
 Node<std::string>* Linkedlist::getLastNode(){
   // Iterate over the list's nodes
@@ -53,25 +52,28 @@ Node<std::string>* Linkedlist::getLastNode(){
 }
 
 bool Linkedlist::removeLast(){
+  assert(this->size > 0);
   if (this->size > 1) {
     Node<std::string>* lastNode = this->getLastNode();
     lastNode->getPreviousNode()->setNextNode(nullptr);
+    delete lastNode;
   }else{
-    this->firstNode = nullptr;
+    delete this->firstNode;
   }
   this->size--;
   return true;
 }
 
 bool Linkedlist::removeFirst(){
+  assert(this->size > 0);
   if (this->size > 1) {
     Node<std::string>* tmp = this->getNodeIndex(1);
-
+    delete this->firstNode;
     this->firstNode = tmp;
     tmp->setPreviousNode(nullptr);
-    // Delete node
   }else {
     // We only have this node on the list
+    delete this->firstNode;
     this->firstNode = nullptr;
   }
   this->size--;
@@ -114,6 +116,7 @@ bool Linkedlist::removeFromIndex(int index){
 
   tmp->getPreviousNode()->setNextNode(tmp->getNextNode());
   tmp->getNextNode()->setPreviousNode(tmp->getPreviousNode());
+  delete tmp;
   this->size--;
   return true;
 }

@@ -42,10 +42,7 @@ Node<T>::Node(){
 }
 
 template<typename T>
-Node<T>::~Node(){ 
-  delete &this->data;
-  delete this;
-}
+Node<T>::~Node(){ }
 
 template<typename T>
 inline const bool Node<T>::setPreviousNode(Node* previousNode){ 

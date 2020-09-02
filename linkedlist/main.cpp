@@ -20,11 +20,13 @@ int main(int argc, char *argv[])
 
   list->print();
 
-  list->removeFirst();
+  list->removeFromIndex(1);
   list->removeFromIndex(1);
   list->removeLast();
-  list->removeFirst();
   list->removeLast();
+  list->removeFirst();
+
   list->print();
+  delete list;
   return 0;
 }
