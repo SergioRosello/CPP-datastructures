@@ -1,5 +1,5 @@
 all:
-	g++ -o main main.cpp -Werror -Wall
+	g++ -o main main.cpp linkedlist.cpp -Werror -Wall
 
 clear:
 	rm main

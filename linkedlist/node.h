@@ -2,8 +2,6 @@
 #define NODE_H
 
 #include <assert.h>
-#include <iostream>
-#include <ostream>
 
 template<typename T>
 class Node

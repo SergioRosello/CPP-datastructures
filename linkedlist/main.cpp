@@ -1,5 +1,4 @@
 #include "linkedlist.h"
-#include "node.h"
 
 // Run the linked list.
 int main(int argc, char *argv[])
