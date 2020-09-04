@@ -1,0 +1,22 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/36a6dd19/
+Linkedlist	linkedlist.cpp	/^Linkedlist::Linkedlist(){$/;"	f	class:Linkedlist
+Linkedlist	linkedlist.cpp	/^Linkedlist::Linkedlist(Node<std::string>* firstNode){$/;"	f	class:Linkedlist
+addToIndex	linkedlist.cpp	/^void Linkedlist::addToIndex(Node<std::string> *node, int index){$/;"	f	class:Linkedlist	typeref:typename:void
+append	linkedlist.cpp	/^void Linkedlist::append(Node<std::string> *node){$/;"	f	class:Linkedlist	typeref:typename:void
+getLastNode	linkedlist.cpp	/^Node<std::string>* Linkedlist::getLastNode(){$/;"	f	class:Linkedlist	typeref:typename:Node<std::string> *
+getNodeIndex	linkedlist.cpp	/^Node<std::string>* Linkedlist::getNodeIndex(int index){$/;"	f	class:Linkedlist	typeref:typename:Node<std::string> *
+main	main.cpp	/^int main(int argc, char *argv[])$/;"	f	typeref:typename:int
+prepend	linkedlist.cpp	/^void Linkedlist::prepend(Node<std::string> *node){$/;"	f	class:Linkedlist	typeref:typename:void
+print	linkedlist.cpp	/^void Linkedlist::print(){$/;"	f	class:Linkedlist	typeref:typename:void
+removeFirst	linkedlist.cpp	/^void Linkedlist::removeFirst(){$/;"	f	class:Linkedlist	typeref:typename:void
+removeFromIndex	linkedlist.cpp	/^void Linkedlist::removeFromIndex(int index){$/;"	f	class:Linkedlist	typeref:typename:void
+removeLast	linkedlist.cpp	/^void Linkedlist::removeLast(){$/;"	f	class:Linkedlist	typeref:typename:void
+~Linkedlist	linkedlist.cpp	/^Linkedlist::~Linkedlist(){ }$/;"	f	class:Linkedlist
