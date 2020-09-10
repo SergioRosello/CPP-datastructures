@@ -1,4 +1,6 @@
 #include <algorithm>
+#include <iterator>
+#include <string>
 #include <iostream>
 #include <initializer_list>  // std::initializer_list
 
@@ -25,7 +27,12 @@ void MyClass::printList(){
 
 int main(int argc, char *argv[])
 {
-  MyClass newClass = MyClass {1, 2, 3, 4, 5};
-  newClass.printList();
+  //MyClass newClass = MyClass {1, 2, 3, 4, 5};
+  //newClass.printList();
+
+  std::ostream_iterator<std::string> oo{std::cout};
+  *oo = "Hello, ";  // Equivalent to "cout << "Hello, ";
+  //++oo;
+  *oo = "World!\n"; // Equivalent to "cout << "World!\n";
   return 0;
 }

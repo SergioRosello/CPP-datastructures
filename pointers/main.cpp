@@ -1,4 +1,37 @@
+#include <algorithm>
+#include <initializer_list>
 #include <iostream>
+#include <memory> // unique_ptr
+
+template <class T>
+class SVec
+{
+  private:
+    T* list;
+    int size;
+  public:
+    SVec();
+    SVec(std::initializer_list<T>);
+    ~SVec();
+    int& operator[](int) const;
+};
+
+template <class T>
+SVec<T>::~SVec(){}
+
+template <class T>
+SVec<T>::SVec(){}
+
+template <class T>
+SVec<T>::SVec(std::initializer_list<T> lst) :list{new T[lst.size()]},size{int(lst.size())} {
+  std::copy(lst.begin(), lst.end(), list);
+}
+
+template <class T>
+int& SVec<T>::operator[](int i) const{
+  if(i >= size || i < 0) throw std::out_of_range{"SVec::operator[]"};
+  return list[i];
+}
 
 
 // Pointer syntax
@@ -38,6 +71,13 @@ int main(int argc, char *argv[])
     std::cout << i;
     i++;
   }
+
+  SVec<int> vector = {1, 2, 3, 4, 5, 6, 7, 8};
+
+  
+
+  std::cout << "Unique PTR inplementation" << std::endl;
+  std::cout << vector[2];
   
   return 0;
 }
