@@ -2,13 +2,11 @@
 
 int main(int argc, char *argv[])
 {
-  Node first{1, nullptr};
-  Forward_list list{&first};
-  
-  Node second{2, nullptr};
-  list.addNode(&second);
+  Forward_list list{1, 2, 3, 4, 5};
 
-  // list.print();
-  list.printReverse();
+  list.print();
+  list.remove_last();
+  list.emplace_back(6);
+  list.print();
   return 0;
 }

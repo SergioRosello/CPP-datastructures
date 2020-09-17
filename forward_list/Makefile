@@ -1,9 +1,9 @@
 all: main
 
 main:
-	g++ -o main main.cpp forward_list.cpp node.cpp -Werror -Wall
+	g++ -o main main.cpp forward_list.cpp -Werror -Wall
 
-run:
+run: clear main
 	./main
 
 clear:
