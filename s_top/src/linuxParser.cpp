@@ -10,8 +10,10 @@ Time LinuxParser::uptime() {
   if (file.is_open()) {
     std::getline(file, line);
     std::size_t pos = line.find(".");
-    int time = std::stoi(line.substr(0, pos), nullptr);
-    std::cout << "TIME: " << time << std::endl;
+    int uptime = std::stoi(line.substr(0, pos), nullptr);
+    // Call time constructor
+    Time time(uptime);
+    return time;
   }
   return Time();
 }
@@ -42,11 +44,4 @@ std::string LinuxParser::os_release() {
     };
   }
   return "INVALID";
-}
-
-Time parse_seconds(int time_s) {
-  int seconds;
-  int minutes = 60;
-  int hours = 60 * 60;
-  return Time();
 }
