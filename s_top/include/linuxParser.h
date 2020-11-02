@@ -20,8 +20,11 @@ class LinuxParser {
 public:
   LinuxParser();
   std::string cmd();
-  std::string cpu_info();
+  float cpu_usage();
   std::string status();
+  int total_processes();
+  int running_processes();
+  float ram();
   std::string os_release();
   Time uptime();
 };
