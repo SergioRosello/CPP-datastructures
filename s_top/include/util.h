@@ -8,7 +8,7 @@ std::string substitute_in_string(std::string &, std::string, std::string);
 
 // Constant Linux and Process file names
 const std::string kProcDirectory{"/proc/"};
-const std::string kCmdlineFilename{"/cmdline"};
+const std::string kCmdlineFilename{"/comm"};
 const std::string kStatusFilename{"/status"};
 const std::string kStatFilename{"/stat"};
 const std::string kPasswordPath{"/etc/passwd"};

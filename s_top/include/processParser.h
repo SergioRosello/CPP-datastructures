@@ -1,9 +1,9 @@
 #include "../include/util.h"
 #include <filesystem>
-#include <vector>
 #include <iostream>
-#include <string>
 #include <regex>
+#include <string>
+#include <vector>
 // Collects a list of the currently running processes
 // Updates the processes, and creates new processes if
 //    the system has created new processes

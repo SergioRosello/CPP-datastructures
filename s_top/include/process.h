@@ -4,40 +4,38 @@
 #include <sstream>
 #include <string>
 
-using namespace std;
-
 class Process {
 private:
-  string pid;
+  std::string pid;
   std::string user;
   int cpu_usage;
   int memory_usage;
   int time;
   std::string command;
 
-  std::string _user();
-  int _cpu_usage();
-  int _memory_usage();
-  int _time();
-  int _command();
+  void _user();
+  void _cpu_usage();
+  void _memory_usage();
+  void _time();
+  void _command();
 
-  string get_user_name(int);
+  std::string get_user_name(std::string);
 
 public:
   Process();
   // Given the process ID, get it's information
-  Process(string pid);
+  Process(std::string pid);
 
-  string get_pid();
-  string get_user();
-  string get_command();
+  std::string get_pid();
+  std::string get_user();
+  std::string get_command();
   int get_cpu_usage();
   int get_memory_usage();
   int get_time();
 
-  void set_pid(string pid);
-  void set_user(string user);
-  void set_command(string command);
+  void set_pid(std::string pid);
+  void set_user(std::string user);
+  void set_command(std::string command);
   void set_cpu_usage(int cpu_usage);
   void set_memory_usage(int memory_usage);
   void set_time(int time);

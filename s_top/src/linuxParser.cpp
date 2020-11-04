@@ -19,7 +19,7 @@ Time LinuxParser::uptime() {
 
 float LinuxParser::ram() {
   int mem_total, used_ram, mem_available;
-  float percentage_used;
+  float percentage_used = -1.f;
   bool data_read = false, mem_total_read = false, mem_available_read = false;
   std::ifstream file(kProcDirectory + kMeminfoFilename);
   if (file.is_open()) {

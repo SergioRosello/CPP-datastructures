@@ -16,15 +16,25 @@ int main() {
   // Process parser that gets all current rulling processes and creates
   // the processes
   ProcessParser pp;
-  pp.get_processes();
+  while (true) {
+    pp.get_processes();
 
-  std::vector<Process> processes;
-  for( auto process : pp.PIDs ){
-    //Create a process object
-    Process p(process);
-    processes.push_back(p);
+    std::vector<Process> processes;
+    for (auto process : pp.PIDs) {
+      // Create a process object
+      //TODO: Before creating, check wheather the process already exists, with it's specific pid
+      //then, if it doesn't exist, create the new one. 
+      //If the process exists, update it's fields.
+      Process p(process);
+      processes.push_back(p);
+    }
+
+    for (auto process : processes) {
+      std::cout << "Process ID: " << process.get_pid()
+                << " User: " << process.get_user()
+                << " Command: " << process.get_command()
+                << " Mem usage: " << process.get_memory_usage() << std::endl;
+    }
   }
-
-  cout << "Running processes: " << lp.running_processes() << endl;
   return 0;
 }
