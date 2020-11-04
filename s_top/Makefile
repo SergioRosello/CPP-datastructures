@@ -1,5 +1,5 @@
 .PHONY: all
-all: format build
+all: build
 
 .PHONY: format
 format:
@@ -19,10 +19,10 @@ debug:
 	cmake -DCMAKE_BUILD_TYPE=debug .. && \
 	make
 
-.PHONY: clean
-clean:
-	rm -rf build
-
 .PHONY: run
 run:
 	./build/stop
+
+.PHONY: clean
+clean:
+	rm -rf build

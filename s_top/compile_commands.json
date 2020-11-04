@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/sergio/Documents/Code/C++/s_top",
+  "command": "/usr/bin/c++  -I/home/sergio/Documents/Code/C++/s_top/include -Wall -Wextra -std=gnu++17 -o CMakeFiles/stop.dir/src/linuxParser.cpp.o -c /home/sergio/Documents/Code/C++/s_top/src/linuxParser.cpp",
+  "file": "/home/sergio/Documents/Code/C++/s_top/src/linuxParser.cpp"
+},
+{
+  "directory": "/home/sergio/Documents/Code/C++/s_top",
+  "command": "/usr/bin/c++  -I/home/sergio/Documents/Code/C++/s_top/include -Wall -Wextra -std=gnu++17 -o CMakeFiles/stop.dir/src/main.cpp.o -c /home/sergio/Documents/Code/C++/s_top/src/main.cpp",
+  "file": "/home/sergio/Documents/Code/C++/s_top/src/main.cpp"
+},
+{
+  "directory": "/home/sergio/Documents/Code/C++/s_top",
+  "command": "/usr/bin/c++  -I/home/sergio/Documents/Code/C++/s_top/include -Wall -Wextra -std=gnu++17 -o CMakeFiles/stop.dir/src/process.cpp.o -c /home/sergio/Documents/Code/C++/s_top/src/process.cpp",
+  "file": "/home/sergio/Documents/Code/C++/s_top/src/process.cpp"
+},
+{
+  "directory": "/home/sergio/Documents/Code/C++/s_top",
+  "command": "/usr/bin/c++  -I/home/sergio/Documents/Code/C++/s_top/include -Wall -Wextra -std=gnu++17 -o CMakeFiles/stop.dir/src/processParser.cpp.o -c /home/sergio/Documents/Code/C++/s_top/src/processParser.cpp",
+  "file": "/home/sergio/Documents/Code/C++/s_top/src/processParser.cpp"
+},
+{
+  "directory": "/home/sergio/Documents/Code/C++/s_top",
+  "command": "/usr/bin/c++  -I/home/sergio/Documents/Code/C++/s_top/include -Wall -Wextra -std=gnu++17 -o CMakeFiles/stop.dir/src/util.cpp.o -c /home/sergio/Documents/Code/C++/s_top/src/util.cpp",
+  "file": "/home/sergio/Documents/Code/C++/s_top/src/util.cpp"
+}
+]

@@ -1,8 +1,4 @@
 #include "../include/linuxParser.h"
-#include <iostream>
-#include <ostream>
-#include <string>
-#include <unistd.h>
 
 LinuxParser::LinuxParser(){};
 
