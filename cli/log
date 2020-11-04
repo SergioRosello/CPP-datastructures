@@ -1,8 +1,0 @@
-* Design the class architecture
-  * Class command
-  * Class cli
-
-* Decide the basic functionality
-  * Executes commands
-  * Has a history of commands
-    * Stored in a file

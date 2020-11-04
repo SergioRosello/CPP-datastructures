@@ -1,5 +1,0 @@
-ls -la
-echo "Hola" > buenas
-cat buenas
-rm buenas
-whoami

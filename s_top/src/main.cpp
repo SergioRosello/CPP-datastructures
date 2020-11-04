@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int main(int argc, char *argv[]) {
+int main() {
   LinuxParser lp;
   cout << "OS release: " << lp.os_release() << endl;
   cout << "Uptime: " << lp.uptime() << endl;
@@ -16,8 +16,15 @@ int main(int argc, char *argv[]) {
   // Process parser that gets all current rulling processes and creates
   // the processes
   ProcessParser pp;
-  pp.list_directories();
-  // TODO: Test the _user method in Process and the get_user_name method
+  pp.get_processes();
+
+  std::vector<Process> processes;
+  for( auto process : pp.PIDs ){
+    //Create a process object
+    Process p(process);
+    processes.push_back(p);
+  }
+
   cout << "Running processes: " << lp.running_processes() << endl;
   return 0;
 }
