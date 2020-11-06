@@ -11,29 +11,54 @@ int main() {
   // Declare and initialize the renderer
   Renderer r;
 
-  printw("Press F1 to exit");
+  // Necesary first refresh!!
   refresh();
+
+  // Create windows for the OS stats
   Window_attr os_window{20, r.max_col, r.y, r.x};
-  r.create_new_win(os_window);
+  r.create_new_border_win(os_window);
+  Window_attr OS_window_keys{18, r.max_col/3, getbegy(os_window.w), getbegx(os_window.w)};
+  r.create_sub_win(os_window.w, OS_window_keys);
+  Window_attr OS_window_values{18, (r.max_col/3)*2, getbegy(os_window.w), getmaxx(OS_window_keys.w)};
+  r.create_sub_win(os_window.w, OS_window_values);
 
+  // Create windows for the processes.
   getmaxyx(os_window.border, r.y, r.x);
-
   Window_attr processes_window{50, r.max_col, r.y, 0};
-  r.create_new_win(processes_window);
+  r.create_new_border_win(processes_window);
+  Window_attr processes_window_keys{48, r.max_col/3, getbegy(processes_window.w), getbegx(processes_window.w)};
+  r.create_sub_win(processes_window.w, processes_window_keys);
+  Window_attr processes_window_values{48, (r.max_col/3)*2, getbegy(processes_window.w), getmaxx(processes_window_keys.w)};
+  r.create_sub_win(processes_window.w, processes_window_values);
+
+  refresh();
 
   // The linuxParser will be in one window
   // The ProcessParser will be in another window
   int ch;
   // Quit program on letter q pressed
+
+  LinuxParser lp;
+
+  wprintw(OS_window_keys.w, "OS Release:\n");
+  wprintw(OS_window_keys.w, "Uptime:\n");
+  wprintw(OS_window_keys.w, "CPU Time:\n");
+  wprintw(OS_window_keys.w, "RAM Usage:\n");
+  wprintw(OS_window_keys.w, "Total Processes:\n");
+  wprintw(OS_window_keys.w, "Running Processes:\n");
+  wrefresh(OS_window_keys.w);
+  wprintw(OS_window_values.w, lp.os_release().c_str());
+
   while ((ch = getch()) != 'q') {
     getyx(os_window.w, r.y, r.x);
-    r.print_window(os_window);
-    std::wstring str{std::to_wstring(r.max_col)};
-    waddwstr(processes_window.w, str.c_str());
+    std::wstring str{std::to_wstring(ch)};
+    waddwstr(processes_window_keys.w, str.c_str());
+    waddwstr(processes_window_values.w, str.c_str());
+    waddwstr(OS_window_keys.w, str.c_str());
+    waddwstr(OS_window_values.w, str.c_str());
 
+    //TODO: Convert integers/floats to strings so we can print them
 
-    // LinuxParser lp;
-    // addstr("OS Release: ");
     // cout << "OS release: " << lp.os_release() << endl;
     // cout << "Uptime: " << lp.uptime() << endl;
     // cout << "CPU usage: " << lp.cpu_usage() << endl;
@@ -63,8 +88,9 @@ int main() {
     //<< " Mem usage: " << process.get_memory_usage() << std::endl;
     //}
     // Refresh the screen, to add everything new
-    wrefresh(os_window.w);
-    wrefresh(processes_window.w);
+    wrefresh(OS_window_values.w);
+    wrefresh(processes_window_keys.w);
+    wrefresh(processes_window_values.w);
     //}
     // TODO: Should be called when the interrupt Ctrl+c is sent to the program.
     // otherwise, i fear it won't work

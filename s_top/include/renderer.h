@@ -1,4 +1,5 @@
 #include <ncurses.h>
+#include <assert.h>
 #include <list>
 
 struct Window_attr {
@@ -16,12 +17,13 @@ public:
   // Max screen coordinates
   int max_row, max_col;
   // Coordinates of the current cursor
-  int x, y;
+  int x = 0, y = 0;
   Renderer();
   void init();
+  void create_new_border_win(Window_attr&);
+  void create_sub_win(WINDOW*, Window_attr&);
   void create_new_win(Window_attr&);
   void destroy_win(Window_attr&);
-  void print_window(Window_attr&);  
 };
 
 // Windows vector

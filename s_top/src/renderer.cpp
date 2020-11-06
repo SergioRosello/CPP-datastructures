@@ -12,19 +12,24 @@ Renderer::Renderer() {
   getmaxyx(stdscr, max_row, max_col);
 }
 
-void Renderer::create_new_win(Window_attr& local_win) {
+void Renderer::create_sub_win(WINDOW* win, Window_attr& local_win) {
+  assert(local_win.max_y <= getmaxy(win));
+  assert(local_win.max_x <= getmaxx(win));
+
+  local_win.w = subwin(win, local_win.max_y, local_win.max_x, local_win.y_coor,local_win.x_coor);
+  wrefresh(local_win.w);  /* Show that box 		*/
+  // Get the x and y coordinates for the current window
+  windows.push_back(local_win);
+}
+
+void Renderer::create_new_border_win(Window_attr& local_win) {
   local_win.border = newwin(local_win.max_y, local_win.max_x, local_win.y_coor, local_win.x_coor);
   box(local_win.border, 0, 0);
   wrefresh(local_win.border);  /* Show that box 		*/
   // Get the x and y coordinates for the current window
   local_win.w = derwin(local_win.border, local_win.max_y - 2, local_win.max_x - 2, 1, 1);
   wrefresh(local_win.w);  /* Show that box 		*/
-  getyx(local_win.w, y, x);
   windows.push_back(local_win);
-}
-
-void Renderer::print_window(Window_attr& local_win){
-  wprintw(local_win.w, "Buenas, amigos, que tal las bestias?");
 }
 
 void Renderer::destroy_win(Window_attr& local_win) {
