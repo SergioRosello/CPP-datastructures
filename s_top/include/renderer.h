@@ -4,7 +4,8 @@
 struct Window_attr {
   int max_y, max_x ;
   int y_coor, x_coor;
-  WINDOW* w;
+  WINDOW* border = nullptr;
+  WINDOW* w = nullptr;
 };
 
 class Renderer {

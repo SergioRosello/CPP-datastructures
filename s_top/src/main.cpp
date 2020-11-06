@@ -13,11 +13,12 @@ int main() {
 
   printw("Press F1 to exit");
   refresh();
-  Window_attr os_window{20, r.max_col, r.y, r.x, nullptr};
+  Window_attr os_window{20, r.max_col, r.y, r.x};
   r.create_new_win(os_window);
 
-  getmaxyx(os_window.w, r.y, r.x);
-  Window_attr processes_window{50, r.max_col, r.y, 0, nullptr};
+  getmaxyx(os_window.border, r.y, r.x);
+
+  Window_attr processes_window{50, r.max_col, r.y, 0};
   r.create_new_win(processes_window);
 
   // The linuxParser will be in one window
