@@ -10,22 +10,26 @@ int main() {
 
   // Declare and initialize the renderer
   Renderer r;
-  // Create two windows
-  // cout lines to the pannels through my renderer,
-  // so I don't have to operate with coordinates here
 
   printw("Press F1 to exit");
   refresh();
-  WINDOW *os_window{r.create_newwin(20, 239, 0, 0)};
-  WINDOW *processes_window{r.create_newwin(50, 239, 20, 0)};
-  mvwprintw(os_window, 2, 2, "Hola, esto deberia poder verlo");
-  refresh();
+  Window_attr os_window{20, r.max_col, r.y, r.x, nullptr};
+  r.create_new_win(os_window);
+
+  getmaxyx(os_window.w, r.y, r.x);
+  Window_attr processes_window{50, r.max_col, r.y, 0, nullptr};
+  r.create_new_win(processes_window);
+
   // The linuxParser will be in one window
   // The ProcessParser will be in another window
   int ch;
-  while ((ch = getch()) != KEY_F(1)) {
-    mvwprintw(os_window, 2, 2, "Hola, esto deberia poder verlo");
-    wprintw(processes_window, "Buenas, amigos, aqui estamos");
+  // Quit program on letter q pressed
+  while ((ch = getch()) != 'q') {
+    getyx(os_window.w, r.y, r.x);
+    r.print_window(os_window);
+    std::wstring str{std::to_wstring(r.max_col)};
+    waddwstr(processes_window.w, str.c_str());
+
 
     // LinuxParser lp;
     // addstr("OS Release: ");
@@ -58,14 +62,15 @@ int main() {
     //<< " Mem usage: " << process.get_memory_usage() << std::endl;
     //}
     // Refresh the screen, to add everything new
-    refresh();
+    wrefresh(os_window.w);
+    wrefresh(processes_window.w);
     //}
     // TODO: Should be called when the interrupt Ctrl+c is sent to the program.
     // otherwise, i fear it won't work
     // Finish the program
   }
-  //r.destroy_win(os_window);
-  //r.destroy_win(processes_window);
+  r.destroy_win(os_window);
+  r.destroy_win(processes_window);
   endwin();
   return 0;
 }
